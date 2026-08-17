@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Waimarishe Kenya Ltd — Kuimarisha Biashara Yako</title>
+<meta name="description" content="Waimarishe Kenya Ltd — microfinance for traders, chamas and boda boda operators in Kitengela.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Public+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink-navy: #14213D;
+    --ink-navy-deep: #0D172E;
+    --parchment: #EDE6D3;
+    --parchment-light: #F6F2E6;
+    --stamp-red: #A93226;
+    --ochre: #C0922E;
+    --charcoal: #201C14;
+    --rule: rgba(32,28,20,0.18);
+    --rule-light: rgba(237,230,211,0.22);
+
+    --font-display: 'Fraunces', serif;
+    --font-body: 'Public Sans', sans-serif;
+    --font-mono: 'Space Mono', monospace;
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family: var(--font-body);
+    color: var(--charcoal);
+    background: var(--parchment-light);
+    line-height:1.5;
+  }
+  img,svg{display:block; max-width:100%;}
+  a{color:inherit;}
+  :focus-visible{outline:3px solid var(--ochre); outline-offset:3px;}
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important;}
+  }
+
+  .wrap{max-width:1120px; margin:0 auto; padding:0 28px;}
+
+  /* ---------- NAV ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background: var(--ink-navy);
+    border-bottom:1px solid rgba(246,242,230,0.12);
+  }
+  nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 28px;
+    max-width:1120px; margin:0 auto;
+  }
+  .logo{
+    font-family: var(--font-display);
+    font-weight:600;
+    font-size:1.35rem;
+    color: var(--parchment-light);
+    letter-spacing:0.01em;
+    display:flex; align-items:baseline; gap:8px;
+  }
+  .logo small{
+    font-family: var(--font-mono);
+    font-size:0.6rem;
+    color: var(--ochre);
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+  }
+  .nav-links{display:flex; align-items:center; gap:32px; list-style:none;}
+  .nav-links a{
+    font-size:0.92rem;
+    color: rgba(246,242,230,0.82);
+    text-decoration:none;
+    transition: color 0.15s ease;
+  }
+  .nav-links a:hover{color: var(--parchment-light);}
+  .nav-cta{
+    font-family: var(--font-mono);
+    font-size:0.82rem;
+    color: var(--ink-navy) !important;
+    background: var(--ochre);
+    padding:9px 18px;
+    border-radius:2px;
+    text-decoration:none;
+    font-weight:700;
+    letter-spacing:0.02em;
+  }
+  .menu-toggle{display:none; background:none; border:0; color:var(--parchment-light); font-size:1.6rem; cursor:pointer;}
+
+  @media (max-width: 780px){
+    .nav-links{
+      position:absolute; top:100%; left:0; right:0;
+      background: var(--ink-navy-deep);
+      flex-direction:column; align-items:flex-start;
+      padding:20px 28px 28px; gap:18px;
+      display:none;
+      border-bottom:1px solid rgba(246,242,230,0.12);
+    }
+    .nav-links.open{display:flex;}
+    .menu-toggle{display:block;}
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    background:
+      linear-gradient(180deg, rgba(20,33,61,0.90) 0%, rgba(13,23,46,0.94) 100%),
+      url('images/hero-team.jpg');
+    background-size: cover;
+    background-position: center 40%;
+    color: var(--parchment-light);
+    padding: 90px 0 120px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::after{
+    content:"";
+    position:absolute; inset:0;
+    background-image: repeating-linear-gradient(
+      transparent, transparent 38px, rgba(246,242,230,0.035) 39px
+    );
+    pointer-events:none;
+  }
+  .hero-inner{
+    display:grid; grid-template-columns: 1.15fr 0.85fr; gap:56px; align-items:center;
+    position:relative; z-index:1;
+  }
+  .eyebrow{
+    font-family: var(--font-mono);
+    font-size:0.78rem;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    color: var(--ochre);
+    margin-bottom:20px;
+    display:flex; align-items:center; gap:10px;
+  }
+  .eyebrow::before{content:"§"; opacity:0.7;}
+  h1{
+    font-family: var(--font-display);
+    font-weight:500;
+    font-size: clamp(2.3rem, 4.5vw, 3.4rem);
+    line-height:1.08;
+    margin-bottom:22px;
+  }
+  h1 em{font-style:italic; color: var(--ochre); font-weight:500;}
+  .hero p.lede{
+    font-size:1.08rem;
+    color: rgba(246,242,230,0.78);
+    max-width:46ch;
+    margin-bottom:34px;
+  }
+  .hero-ctas{display:flex; gap:16px; flex-wrap:wrap; align-items:center;}
+  .btn-primary{
+    font-family: var(--font-mono);
+    font-weight:700;
+    font-size:0.88rem;
+    letter-spacing:0.02em;
+    background: var(--stamp-red);
+    color: var(--parchment-light);
+    padding:15px 26px;
+    border-radius:2px;
+    text-decoration:none;
+    display:inline-block;
+    border:1px solid rgba(246,242,230,0.15);
+    transition: transform 0.15s ease, background 0.15s ease;
+  }
+  .btn-primary:hover{background:#8f2b21; transform:translateY(-1px);}
+  .btn-ghost{
+    font-family: var(--font-mono);
+    font-size:0.86rem;
+    color: rgba(246,242,230,0.85);
+    text-decoration:none;
+    border-bottom:1px solid rgba(246,242,230,0.4);
+    padding-bottom:2px;
+  }
+  .btn-ghost:hover{border-color: var(--ochre); color:var(--ochre);}
+
+  /* stamp graphic */
+  .stamp-box{
+    display:flex; align-items:center; justify-content:center;
+    position:relative;
+  }
+  .stamp{
+    width:100%; max-width:280px;
+    transform: rotate(-9deg);
+    filter: drop-shadow(0 8px 20px rgba(0,0,0,0.35));
+  }
+  .stamp circle, .stamp path, .stamp text{
+    fill:none;
+    stroke: var(--ochre);
+  }
+  .stamp text{
+    fill: var(--ochre);
+    stroke:none;
+    font-family: var(--font-mono);
+  }
+
+  /* ---------- MARQUEE / STATS RIBBON ---------- */
+  .ribbon{
+    background: var(--ochre);
+    color: var(--ink-navy-deep);
+    font-family: var(--font-mono);
+    font-size:0.82rem;
+    font-weight:700;
+    letter-spacing:0.03em;
+    padding:12px 0;
+    overflow:hidden;
+    white-space:nowrap;
+    border-bottom:1px solid rgba(20,33,61,0.15);
+  }
+  .ribbon-track{display:inline-block; animation: scroll-left 32s linear infinite;}
+  .ribbon-track span{margin:0 28px;}
+  @keyframes scroll-left{
+    from{transform:translateX(0);}
+    to{transform:translateX(-50%);}
+  }
+
+  /* ---------- SECTION HEADERS ---------- */
+  section{padding:88px 0;}
+  .section-head{
+    display:flex; justify-content:space-between; align-items:flex-end;
+    margin-bottom:48px; gap:24px; flex-wrap:wrap;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom:22px;
+  }
+  .section-head .tag{
+    font-family: var(--font-mono);
+    font-size:0.76rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color: var(--stamp-red);
+    margin-bottom:10px;
+    display:block;
+  }
+  .section-head h2{
+    font-family: var(--font-display);
+    font-weight:500;
+    font-size: clamp(1.7rem, 3vw, 2.3rem);
+    max-width:20ch;
+  }
+  .section-head p{max-width:34ch; color:#4b4636; font-size:0.96rem;}
+
+  /* ---------- LOAN LEDGER ---------- */
+  .ledger{
+    border-top: 2px solid var(--charcoal);
+  }
+  .ledger-row{
+    display:grid;
+    grid-template-columns: 2.4fr 1.1fr 1.1fr 1.1fr 1.4fr;
+    gap:16px;
+    padding:22px 0;
+    border-bottom: 1px solid var(--rule);
+    align-items:center;
+  }
+  .ledger-row.head{
+    font-family: var(--font-mono);
+    font-size:0.72rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:#6b6551;
+    padding-top:14px;
+    padding-bottom:14px;
+  }
+  .ledger-row .product-name{
+    font-family: var(--font-display);
+    font-size:1.12rem;
+    font-weight:600;
+  }
+  .ledger-row .product-desc{
+    font-size:0.86rem; color:#5c5744; margin-top:4px; max-width:34ch;
+  }
+  .ledger-row .num{
+    font-family: var(--font-mono);
+    font-size:0.92rem;
+  }
+  .ledger-row .num .label{
+    display:block; font-size:0.68rem; color:#8a8265; text-transform:uppercase; letter-spacing:0.06em; margin-bottom:3px;
+  }
+  .ledger-row .apply{
+    font-family: var(--font-mono);
+    font-size:0.8rem;
+    color: var(--stamp-red);
+    text-decoration:none;
+    justify-self:end;
+    border-bottom:1px solid transparent;
+  }
+  .ledger-row .apply:hover{border-bottom-color: var(--stamp-red);}
+
+  @media (max-width: 860px){
+    .ledger-row{grid-template-columns: 1fr; gap:6px; padding:24px 0;}
+    .ledger-row.head{display:none;}
+    .ledger-row .num{display:flex; justify-content:space-between; padding:2px 0;}
+    .ledger-row .num .label{display:inline; margin-right:8px; margin-bottom:0;}
+    .ledger-row .apply{justify-self:start; margin-top:10px;}
+  }
+
+  /* ---------- HOW IT WORKS ---------- */
+  .steps{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:1px;
+    background: var(--rule);
+    border:1px solid var(--rule);
+  }
+  .step{
+    background: var(--parchment-light);
+    padding:32px 26px;
+  }
+  .step .n{
+    font-family: var(--font-mono);
+    color: var(--stamp-red);
+    font-size:0.85rem;
+    margin-bottom:14px;
+  }
+  .step h3{
+    font-family: var(--font-display);
+    font-size:1.15rem;
+    font-weight:600;
+    margin-bottom:10px;
+  }
+  .step p{font-size:0.9rem; color:#4b4636;}
+  @media (max-width:760px){
+    .steps{grid-template-columns:1fr 1fr;}
+  }
+  @media (max-width:480px){
+    .steps{grid-template-columns:1fr;}
+  }
+
+  /* ---------- TRUST / STATS ---------- */
+  .trust{
+    background: var(--ink-navy);
+    color: var(--parchment-light);
+  }
+  .trust .section-head h2{color:var(--parchment-light);}
+  .trust .section-head p{color: rgba(246,242,230,0.65);}
+  .trust .section-head{border-color: rgba(246,242,230,0.18);}
+  .stat-grid{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:1px;
+    background: rgba(246,242,230,0.15);
+    border:1px solid rgba(246,242,230,0.15);
+  }
+  .stat{
+    background: var(--ink-navy-deep);
+    padding:30px 24px;
+  }
+  .stat .figure{
+    font-family: var(--font-mono);
+    font-size:2rem;
+    color: var(--ochre);
+    margin-bottom:8px;
+  }
+  .stat .label{font-size:0.85rem; color:rgba(246,242,230,0.7);}
+  @media (max-width:760px){ .stat-grid{grid-template-columns:1fr 1fr;} }
+  @media (max-width:480px){ .stat-grid{grid-template-columns:1fr;} }
+
+  /* ---------- TESTIMONIALS ---------- */
+  .testimonials{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:28px;
+  }
+  .testimonial{
+    background: var(--parchment);
+    border:1px solid var(--rule);
+    padding:28px 24px;
+    position:relative;
+  }
+  .testimonial::before{
+    content:"“";
+    font-family: var(--font-display);
+    font-size:3rem;
+    color: var(--ochre);
+    line-height:1;
+    display:block;
+    margin-bottom:6px;
+  }
+  .testimonial p{font-size:0.95rem; color:#332f22; margin-bottom:18px;}
+  .testimonial .who{
+    font-family: var(--font-mono);
+    font-size:0.78rem;
+    color:#6b6551;
+    border-top:1px solid var(--rule);
+    padding-top:12px;
+  }
+  .testimonial .who strong{color:var(--charcoal); font-family:var(--font-body); font-weight:700; display:block; font-size:0.88rem; margin-bottom:2px;}
+  @media (max-width:860px){ .testimonials{grid-template-columns:1fr;} }
+
+  /* ---------- CONTACT ---------- */
+  .contact{
+    background: var(--parchment);
+    border-top:1px solid var(--rule);
+    border-bottom:1px solid var(--rule);
+  }
+  .contact-grid{
+    display:grid; grid-template-columns:1fr 1fr; gap:56px;
+  }
+  .contact h2{
+    font-family: var(--font-display); font-weight:500;
+    font-size: clamp(1.7rem, 3vw, 2.3rem);
+    margin-bottom:18px;
+  }
+  .contact p.lede{color:#4b4636; margin-bottom:30px; max-width:42ch;}
+  .contact-detail{
+    display:flex; gap:14px; padding:16px 0; border-top:1px solid var(--rule);
+  }
+  .contact-detail:last-child{border-bottom:1px solid var(--rule);}
+  .contact-detail .k{
+    font-family: var(--font-mono); font-size:0.72rem; text-transform:uppercase; letter-spacing:0.08em;
+    color:#8a8265; width:110px; flex-shrink:0; padding-top:2px;
+  }
+  .contact-detail .v{font-size:0.96rem;}
+  .contact-detail .v a{text-decoration:underline; text-decoration-color: var(--ochre);}
+
+  form{display:flex; flex-direction:column; gap:16px;}
+  .field label{
+    display:block; font-family:var(--font-mono); font-size:0.72rem; text-transform:uppercase;
+    letter-spacing:0.08em; color:#6b6551; margin-bottom:7px;
+  }
+  .field input, .field select, .field textarea{
+    width:100%; padding:12px 14px; font-family:var(--font-body); font-size:0.95rem;
+    background: var(--parchment-light); border:1px solid var(--rule); border-radius:2px; color:var(--charcoal);
+  }
+  .field textarea{resize:vertical; min-height:90px;}
+  .field input:focus, .field select:focus, .field textarea:focus{border-color:var(--stamp-red);}
+  .submit-btn{
+    font-family: var(--font-mono); font-weight:700; font-size:0.88rem;
+    background: var(--ink-navy); color: var(--parchment-light);
+    padding:15px 26px; border:0; border-radius:2px; cursor:pointer; align-self:flex-start;
+    transition: background 0.15s ease;
+  }
+  .submit-btn:hover{background: var(--ink-navy-deep);}
+  .form-note{font-size:0.78rem; color:#8a8265; margin-top:-4px;}
+
+  @media (max-width:860px){ .contact-grid{grid-template-columns:1fr; gap:40px;} }
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    background: var(--ink-navy-deep);
+    color: rgba(246,242,230,0.6);
+    padding:44px 0 30px;
+    font-size:0.85rem;
+  }
+  .footer-top{
+    display:flex; justify-content:space-between; align-items:flex-start; gap:24px; flex-wrap:wrap;
+    padding-bottom:28px; margin-bottom:22px; border-bottom:1px solid rgba(246,242,230,0.12);
+  }
+  .footer-top .logo{margin-bottom:8px;}
+  .footer-links{display:flex; gap:28px; list-style:none; flex-wrap:wrap;}
+  .footer-links a{color:rgba(246,242,230,0.7); text-decoration:none; font-size:0.86rem;}
+  .footer-links a:hover{color:var(--parchment-light);}
+  .footer-bottom{display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; font-family:var(--font-mono); font-size:0.72rem;}
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="#top" class="logo">WAIMARISHE <small>Kenya Ltd.</small></a>
+    <button class="menu-toggle" aria-label="Toggle menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+    <ul class="nav-links">
+      <li><a href="#loans">Loan Products</a></li>
+      <li><a href="#how">How It Works</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#contact" class="nav-cta">Apply Now</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="wrap hero-inner">
+      <div>
+        <span class="eyebrow">Kitengela, Kajiado County</span>
+        <h1>Kuimarisha biashara yako — <em>strengthening</em> the businesses that built Kitengela.</h1>
+        <p class="lede">Waimarishe Kenya Ltd is a locally licensed microfinance company serving traders, chamas, boda boda operators and small business owners across Kitengela and its surrounding markets.</p>
+        <div class="hero-ctas">
+          <a href="#contact" class="btn-primary">Apply for a Loan</a>
+          <a href="#loans" class="btn-ghost">View loan products →</a>
+        </div>
+      </div>
+      <div class="stamp-box">
+        <svg class="stamp" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="110" cy="110" r="98" stroke-width="2.5"/>
+          <circle cx="110" cy="110" r="84" stroke-width="1.2"/>
+          <path id="stamp-arc-top" d="M 34 110 A 76 76 0 0 1 186 110" />
+          <path id="stamp-arc-bottom" d="M 46 150 A 65 65 0 0 0 174 150" />
+          <text font-size="12" letter-spacing="3">
+            <textPath href="#stamp-arc-top" startOffset="50%" text-anchor="middle">IMETHIBITISHWA</textPath>
+          </text>
+          <text font-size="10" letter-spacing="2">
+            <textPath href="#stamp-arc-bottom" startOffset="50%" text-anchor="middle">KITENGELA · EST. LOCAL TRUST</textPath>
+          </text>
+          <text x="110" y="104" font-size="15" text-anchor="middle" font-weight="bold">WAIMARISHE</text>
+          <text x="110" y="122" font-size="10" text-anchor="middle">KENYA LTD</text>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <div class="ribbon" aria-hidden="true">
+    <div class="ribbon-track">
+      <span>NO HIDDEN CHARGES</span><span>·</span>
+      <span>DECISIONS WITHIN 48 HOURS</span><span>·</span>
+      <span>LOCALLY OWNED, KITENGELA BASED</span><span>·</span>
+      <span>GROUP &amp; INDIVIDUAL LOANS</span><span>·</span>
+      <span>NO HIDDEN CHARGES</span><span>·</span>
+      <span>DECISIONS WITHIN 48 HOURS</span><span>·</span>
+      <span>LOCALLY OWNED, KITENGELA BASED</span><span>·</span>
+      <span>GROUP &amp; INDIVIDUAL LOANS</span><span>·</span>
+    </div>
+  </div>
+
+  <section id="loans">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="tag">The Ledger</span>
+          <h2>Loan products, laid out plainly</h2>
+        </div>
+        <p>Every rate and term stated up front — the way a passbook should read. No fine print surprises.</p>
+      </div>
+
+      <div class="ledger">
+        <div class="ledger-row head">
+          <div>Product</div>
+          <div>Amount</div>
+          <div>Term</div>
+          <div>Rate</div>
+          <div></div>
+        </div>
+
+        <div class="ledger-row">
+          <div>
+            <div class="product-name">Biashara Business Loan</div>
+            <div class="product-desc">Working capital for market traders, shopkeepers and stall owners.</div>
+          </div>
+          <div class="num"><span class="label">Amount</span>KSh 10,000 – 300,000</div>
+          <div class="num"><span class="label">Term</span>3 – 12 months</div>
+          <div class="num"><span class="label">Rate</span>From 4% p.m.</div>
+          <a href="#contact" class="apply">Apply →</a>
+        </div>
+
+        <div class="ledger-row">
+          <div>
+            <div class="product-name">Chama Group Loan</div>
+            <div class="product-desc">Joint-liability lending for registered savings groups and merry-go-rounds.</div>
+          </div>
+          <div class="num"><span class="label">Amount</span>KSh 50,000 – 1,000,000</div>
+          <div class="num"><span class="label">Term</span>6 – 18 months</div>
+          <div class="num"><span class="label">Rate</span>From 3.5% p.m.</div>
+          <a href="#contact" class="apply">Apply →</a>
+        </div>
+
+        <div class="ledger-row">
+          <div>
+            <div class="product-name">Boda Boda Asset Finance</div>
+            <div class="product-desc">Motorcycle purchase or logbook financing for riders and delivery operators.</div>
+          </div>
+          <div class="num"><span class="label">Amount</span>KSh 40,000 – 180,000</div>
+          <div class="num"><span class="label">Term</span>6 – 24 months</div>
+          <div class="num"><span class="label">Rate</span>From 4.5% p.m.</div>
+          <a href="#contact" class="apply">Apply →</a>
+        </div>
+
+        <div class="ledger-row">
+          <div>
+            <div class="product-name">Haraka Emergency Loan</div>
+            <div class="product-desc">Fast, short-term lending for urgent household or business needs.</div>
+          </div>
+          <div class="num"><span class="label">Amount</span>KSh 5,000 – 50,000</div>
+          <div class="num"><span class="label">Term</span>1 – 3 months</div>
+          <div class="num"><span class="label">Rate</span>From 6% p.m.</div>
+          <a href="#contact" class="apply">Apply →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="how" style="background:var(--parchment); border-top:1px solid var(--rule); border-bottom:1px solid var(--rule);">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="tag">The Process</span>
+          <h2>From application to disbursement</h2>
+        </div>
+        <p>Four steps, start to finish — most decisions made within two working days.</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="n">01</div>
+          <h3>Apply</h3>
+          <p>Fill the form on this site or visit our Kitengela office with your ID and business details.</p>
+        </div>
+        <div class="step">
+          <div class="n">02</div>
+          <h3>Assessment</h3>
+          <p>A loan officer reviews your application and, where needed, visits your business or group.</p>
+        </div>
+        <div class="step">
+          <div class="n">03</div>
+          <h3>Approval</h3>
+          <p>Approved applications are stamped and terms confirmed with you directly — no hidden charges.</p>
+        </div>
+        <div class="step">
+          <div class="n">04</div>
+          <h3>Disbursement</h3>
+          <p>Funds are sent to your M-Pesa or bank account, usually within 48 hours of approval.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="trust" id="about">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="tag">The Record</span>
+          <h2>Built in Kitengela, for Kitengela</h2>
+        </div>
+        <p>Waimarishe Kenya Ltd has grown alongside this town's markets, matatu stages and estates.</p>
+      </div>
+      <div class="stat-grid">
+        <div class="stat"><div class="figure">1,240+</div><div class="label">Active borrowers</div></div>
+        <div class="stat"><div class="figure">86</div><div class="label">Registered chamas served</div></div>
+        <div class="stat"><div class="figure">KSh 340M+</div><div class="label">Disbursed to date</div></div>
+        <div class="stat"><div class="figure">48hrs</div><div class="label">Typical decision time</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="tag">In Their Words</span>
+          <h2>What our borrowers say</h2>
+        </div>
+      </div>
+      <div class="testimonials">
+        <div class="testimonial">
+          <p>My hardware stall in Kitengela market needed restocking before the festive season. The business loan came through in two days and I paid it back over four months without any surprises.</p>
+          <div class="who"><strong>Grace W.</strong>Hardware trader, Kitengela Market</div>
+        </div>
+        <div class="testimonial">
+          <p>Our chama has borrowed twice now for our table-banking cycle. The group officer actually came to our meeting and explained everything to all twelve of us in Kiswahili.</p>
+          <div class="who"><strong>Milele Women's Chama</strong>12-member savings group</div>
+        </div>
+        <div class="testimonial">
+          <p>I financed my second motorcycle through the boda boda plan. The monthly payment fit my daily earnings and I own the bike outright now.</p>
+          <div class="who"><strong>Peter K.</strong>Boda boda operator</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap contact-grid">
+      <div>
+        <span class="section-head" style="border:0; padding:0; margin:0; display:block;">
+          <span class="tag">Get In Touch</span>
+        </span>
+        <h2>Start your application</h2>
+        <p class="lede">Visit our office, call us, or send your details below and a loan officer will get back to you within one working day.</p>
+
+        <div class="contact-detail">
+          <div class="k">Office</div>
+          <div class="v">Waimarishe Kenya Ltd, 2nd Floor, Kitengela Business Centre, along Namanga Road, Kitengela</div>
+        </div>
+        <div class="contact-detail">
+          <div class="k">Phone</div>
+          <div class="v"><a href="tel:+254700000000">+254 700 000 000</a></div>
+        </div>
+        <div class="contact-detail">
+          <div class="k">Email</div>
+          <div class="v"><a href="mailto:info@waimarishe.co.ke">info@waimarishe.co.ke</a></div>
+        </div>
+        <div class="contact-detail">
+          <div class="k">Hours</div>
+          <div class="v">Mon – Fri, 8:00 – 17:00 · Sat, 9:00 – 13:00</div>
+        </div>
+      </div>
+
+      <div>
+        <form onsubmit="event.preventDefault(); alert('Thank you — this form is a placeholder. Connect it to a form handler or backend to receive real submissions.');">
+          <div class="field">
+            <label for="name">Full name</label>
+            <input id="name" name="name" type="text" required>
+          </div>
+          <div class="field">
+            <label for="phone">Phone number</label>
+            <input id="phone" name="phone" type="tel" required>
+          </div>
+          <div class="field">
+            <label for="product">Loan product</label>
+            <select id="product" name="product">
+              <option>Biashara Business Loan</option>
+              <option>Chama Group Loan</option>
+              <option>Boda Boda Asset Finance</option>
+              <option>Haraka Emergency Loan</option>
+              <option>Not sure yet</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="message">Tell us about your business</label>
+            <textarea id="message" name="message"></textarea>
+          </div>
+          <button type="submit" class="submit-btn">Submit Application</button>
+          <p class="form-note">This is a placeholder form — it doesn't send data yet. See the note in the deployment instructions on wiring it up.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <a href="#top" class="logo" style="color:var(--parchment-light);">WAIMARISHE <small>Kenya Ltd.</small></a>
+        <p style="margin-top:6px; max-width:34ch; font-size:0.85rem;">Licensed microfinance services based in Kitengela, Kajiado County.</p>
+      </div>
+      <ul class="footer-links">
+        <li><a href="#loans">Loan Products</a></li>
+        <li><a href="#how">How It Works</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 WAIMARISHE KENYA LTD</span>
+      <span>KITENGELA, KAJIADO COUNTY, KENYA</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
